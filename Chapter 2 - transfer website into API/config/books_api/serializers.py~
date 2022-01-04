@@ -1,0 +1,5 @@
+"""
+        Serializer translate data into a format that is 
+                easy to consume over the interner.
+                Usually JSON or XML.
+"""
