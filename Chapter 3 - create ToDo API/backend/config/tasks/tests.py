@@ -32,15 +32,17 @@ class TestTaskListView:
 
 
 class TestTaskDetailedView:
-    URL = reverse("tasks_details_url", args="1")
+    URL = "tasks_details_url"
     STATUS_CODE = 200
 
     @pytest.mark.django_db
     def test_task_content(self, client, task):
-        response = client.get(self.URL)
+        url = reverse(self.URL, args=str(task.pk))
+        response = client.get(url)
         assert response.json() == TASK_DATA
 
     @pytest.mark.django_db
     def test_task_status_code(self, client, task):
-        response = client.get(self.URL)
+        url = reverse(self.URL, args=str(task.pk))
+        response = client.get(url)
         assert response.status_code == self.STATUS_CODE
