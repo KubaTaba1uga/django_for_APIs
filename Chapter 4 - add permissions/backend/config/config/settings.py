@@ -125,3 +125,17 @@ STATIC_URL = "static/"
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+
+""" Adding permissions on project- level
+        which will give read capability on resources,
+        however other capabilities will be available
+        for logged-in users only.
+"""
+
+REST_FRAMEWORK = {
+    "DEFAULT_PERMISSION_CLASSES": [
+        # Allow unauthenticated access
+        "rest_framework.permissions.IsAuthenticatedOrReadOnly",
+    ]
+}
