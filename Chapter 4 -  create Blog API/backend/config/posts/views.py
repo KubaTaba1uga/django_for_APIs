@@ -1,11 +1,11 @@
 from rest_framework import generics
 from .models import PostModel
-from .serializers import PostSerializer
+from .serializers import PostSerializer, PostListSerializer
 
 
 class PostListView(generics.ListAPIView):
     queryset = PostModel.objects.all()
-    serializer_class = PostSerializer
+    serializer_class = PostListSerializer
 
 
 class PostDetailsView(generics.RetrieveAPIView):
